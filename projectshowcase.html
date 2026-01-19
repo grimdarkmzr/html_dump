@@ -1,0 +1,597 @@
+<div id="main-content">
+  <style>
+    
+    .showcase-note { opacity: 0.85; }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 999px;
+      font-size: 14px;
+      margin: 6px 6px 0 0;
+    }
+
+    /* Carousel */
+    .carousel {
+      max-width: 980px;
+      margin: 14px auto;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.02);
+    }
+    .carousel a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .carousel img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: rgba(0,0,0,0.06);
+    }
+    .carousel-meta {
+      padding: 12px 14px;
+      border-top: 1px solid rgba(0,0,0,0.10);
+    }
+    .carousel-title {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .carousel-sub {
+      opacity: 0.85;
+      margin-top: 4px;
+      font-size: 14px;
+    }
+    .carousel-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-top: 1px solid rgba(0,0,0,0.10);
+      background: rgba(0,0,0,0.02);
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.9);
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .btn:hover { background: rgba(255,255,255,1); }
+    .carousel-pager { opacity: 0.8; font-size: 14px; }
+
+    /* 30-slot grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 980px;
+      margin: 14px auto;
+    }
+    .project-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.02);
+    }
+    .project-card:hover { background: rgba(0,0,0,0.03); }
+    .project-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: rgba(0,0,0,0.06);
+    }
+    .project-card .info {
+      padding: 10px 12px 12px;
+    }
+    .project-card .name {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      margin-bottom: 4px;
+    }
+    .project-card .byline {
+      opacity: 0.85;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .project-card .tagline {
+      opacity: 0.85;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <div class="welcome-art-cont">
+    <div class="welcome-art">
+      swap this image to whatever
+      <img src="/assets/mascots.png" alt="Project Showcase" title="Project Showcase" />
+    </div>
+  </div>
+
+  <h1 align="center">PROJECT SHOWCASE</h1>
+  <h3>OKAY. WHAT ARE WE DOING HERE?</h3>
+
+  <p>
+    Welcome to the <b>[Your Convention Name]</b> Project Showcase! This is a curated gallery of fan work we’ll feature during the event.
+    Think: a clean, browseable lineup where each project gets a fair shot at being seen.
+  </p>
+
+  <p class="showcase-note">
+    <span class="pill"><b>At most, 30 total projects will be accepted.</b></span>
+    <span class="pill"><b>We will close submissions on March 20th OR once we get 100 responses.</b></span>
+  </p>
+
+  <hr />
+
+  <h3 id="featured">FEATURED SPOTLIGHT (AUTO-CYCLING)</h3>
+  <p>
+    A rotating spotlight for featured projects. Click the image to open the project link.
+    Replace the placeholder entries in the script at the bottom.
+  </p>
+
+  <div class="carousel" aria-label="Featured projects carousel">
+    <a id="carouselLink" href="#" target="_blank" rel="noopener">
+      <img id="carouselImg" src="" alt="" />
+      <div class="carousel-meta">
+        <div class="carousel-title" id="carouselTitle">[Featured Project Name]</div>
+        <div class="carousel-sub" id="carouselSub">by [Creator Name] • [Type/Medium] • [Short note]</div>
+      </div>
+    </a>
+    <div class="carousel-controls">
+      <button class="btn" type="button" id="prevBtn">PREV</button>
+      <div class="carousel-pager" id="pager">1 / 1</div>
+      <button class="btn" type="button" id="nextBtn">NEXT</button>
+
+      <label class="showcase-note" style="display:flex; gap:8px; align-items:center;">
+        <input id="autoplay" type="checkbox" checked />
+        Auto-cycle
+      </label>
+    </div>
+  </div>
+
+  <hr />
+
+  <h3 id="projects">ALL SHOWCASED PROJECTS (30 SLOTS)</h3>
+  <p>
+    These are placeholders for the accepted lineup. 
+    Swap the <b>href</b>, <b>img src</b>, and text when you have the real projects.
+  </p>
+
+  <div class="projects-grid">
+    <!-- SLOT 01 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 01] cover image" />
+      <div class="info">
+        <div class="name">[Project 01 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 02 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 02] cover image" />
+      <div class="info">
+        <div class="name">[Project 02 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 03 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 03] cover image" />
+      <div class="info">
+        <div class="name">[Project 03 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 04 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 04] cover image" />
+      <div class="info">
+        <div class="name">[Project 04 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 05 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 05] cover image" />
+      <div class="info">
+        <div class="name">[Project 05 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 06 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 06] cover image" />
+      <div class="info">
+        <div class="name">[Project 06 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 07 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 07] cover image" />
+      <div class="info">
+        <div class="name">[Project 07 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 08 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 08] cover image" />
+      <div class="info">
+        <div class="name">[Project 08 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 09 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 09] cover image" />
+      <div class="info">
+        <div class="name">[Project 09 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 10 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 10] cover image" />
+      <div class="info">
+        <div class="name">[Project 10 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 11 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 11] cover image" />
+      <div class="info">
+        <div class="name">[Project 11 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 12 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 12] cover image" />
+      <div class="info">
+        <div class="name">[Project 12 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 13 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 13] cover image" />
+      <div class="info">
+        <div class="name">[Project 13 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 14 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 14] cover image" />
+      <div class="info">
+        <div class="name">[Project 14 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 15 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 15] cover image" />
+      <div class="info">
+        <div class="name">[Project 15 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 16 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 16] cover image" />
+      <div class="info">
+        <div class="name">[Project 16 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 17 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 17] cover image" />
+      <div class="info">
+        <div class="name">[Project 17 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 18 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 18] cover image" />
+      <div class="info">
+        <div class="name">[Project 18 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 19 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 19] cover image" />
+      <div class="info">
+        <div class="name">[Project 19 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 20 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 20] cover image" />
+      <div class="info">
+        <div class="name">[Project 20 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 21 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 21] cover image" />
+      <div class="info">
+        <div class="name">[Project 21 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 22 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 22] cover image" />
+      <div class="info">
+        <div class="name">[Project 22 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 23 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 23] cover image" />
+      <div class="info">
+        <div class="name">[Project 23 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 24 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 24] cover image" />
+      <div class="info">
+        <div class="name">[Project 24 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 25 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 25] cover image" />
+      <div class="info">
+        <div class="name">[Project 25 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 26 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 26] cover image" />
+      <div class="info">
+        <div class="name">[Project 26 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 27 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 27] cover image" />
+      <div class="info">
+        <div class="name">[Project 27 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 28 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 28] cover image" />
+      <div class="info">
+        <div class="name">[Project 28 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 29 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 29] cover image" />
+      <div class="info">
+        <div class="name">[Project 29 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+
+    <!-- SLOT 30 -->
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+      <img src="putlinkhere" alt="[Project 30] cover image" />
+      <div class="info">
+        <div class="name">[Project 30 Name]</div>
+        <div class="byline">by [Creator Name]</div>
+        <p class="tagline">[One-line description / what attendees should know]</p>
+      </div>
+    </a>
+  </div>
+
+  <hr />
+
+  <h3 id="timeline">SHOWCASE TIMELINE</h3>
+  <p>These are placeholders (edit as needed):</p>
+  <ul>
+    <li><b>Submissions open:</b> NOW </li>
+    <li><b>Submission deadline:</b> <b>March 20th</b> OR once we get <b>100 responses</b></li>
+    <li><b>Acceptance emails:</b> date • time</li>
+    <li><b>Showcase goes live:</b> date • time</li>
+    <li><b>Convention weekend:</b> date • time</li>
+  </ul>
+
+  <hr />
+
+  <h3 id="guidelines">EVENT SUBMISSION GUIDELINES + USER AGREEMENT</h3>
+
+  <p>
+  <a href="#" class="btn" style="text-decoration:none; display:inline-block;">GUIDELINES AND USER AGREEMENT</a></p>
+
+  <hr />
+
+  <h3 id="submit">SUBMIT A PROJECT</h3>
+  <p>
+    <!-- Replace this link with submission form URL -->
+    <a href="#" class="btn" style="text-decoration:none; display:inline-block;">OPEN SUBMISSION FORM</a>
+  </p>
+
+  <script>
+    // ---- (placeholders) ----
+    // Replace img/title/creator/url with your featured projects.
+    const featured = [
+      {
+        title: "[Featured Project A]",
+        creator: "[Creator Name]",
+        type: "placeholder",
+        note: "Click to view",
+        img: "putlinkhere",
+        url: "#"
+      },
+      {
+        title: "[Featured Project B]",
+        creator: "[Creator Name]",
+        type: "placeholder",
+        note: "Click to view",
+        img: "putlinkhere",
+        url: "#"
+      },
+      {
+        title: "[Featured Project C]",
+        creator: "[Creator Name]",
+        type: "placeholder",
+        note: "Click to view",
+        img: "putlinkhere",
+        url: "#"
+      },
+      {
+        title: "[Featured Project D]",
+        creator: "[Creator Name]",
+        type: "placeholder",
+        note: "Click to view",
+        img: "putlinkhere",
+        url: "#"
+      }
+    ];
+
+    let index = 0;
+    let timer = null;
+
+    const imgEl = document.getElementById("carouselImg");
+    const titleEl = document.getElementById("carouselTitle");
+    const subEl = document.getElementById("carouselSub");
+    const linkEl = document.getElementById("carouselLink");
+    const pagerEl = document.getElementById("pager");
+
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const autoplay = document.getElementById("autoplay");
+
+    function render(i){
+      const item = featured[i];
+      imgEl.src = item.img;
+      imgEl.alt = `${item.title} by ${item.creator}`;
+      titleEl.textContent = item.title;
+      subEl.textContent = `by ${item.creator} • ${item.type} • ${item.note}`;
+      linkEl.href = item.url;
+      pagerEl.textContent = `${i + 1} / ${featured.length}`;
+    }
+
+    function next(){
+      index = (index + 1) % featured.length;
+      render(index);
+    }
+
+    function prev(){
+      index = (index - 1 + featured.length) % featured.length;
+      render(index);
+    }
+
+    function startAutoplay(){
+      stopAutoplay();
+      timer = setInterval(next, 5500);
+    }
+
+    function stopAutoplay(){
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    prevBtn.addEventListener("click", () => { prev(); if (autoplay.checked) startAutoplay(); });
+    nextBtn.addEventListener("click", () => { next(); if (autoplay.checked) startAutoplay(); });
+    autoplay.addEventListener("change", () => autoplay.checked ? startAutoplay() : stopAutoplay());
+
+    // Init
+    render(index);
+    startAutoplay();
+  </script>
+</div>
